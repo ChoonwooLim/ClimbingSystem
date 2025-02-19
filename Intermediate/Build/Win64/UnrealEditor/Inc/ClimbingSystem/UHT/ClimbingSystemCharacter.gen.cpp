@@ -11,6 +11,7 @@ void EmptyLinkFunctionForGeneratedCodeClimbingSystemCharacter() {}
 // Cross Module References
 	CLIMBINGSYSTEM_API UClass* Z_Construct_UClass_AClimbingSystemCharacter();
 	CLIMBINGSYSTEM_API UClass* Z_Construct_UClass_AClimbingSystemCharacter_NoRegister();
+	CLIMBINGSYSTEM_API UClass* Z_Construct_UClass_UCustomMovementComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
@@ -41,6 +42,10 @@ void EmptyLinkFunctionForGeneratedCodeClimbingSystemCharacter() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_FollowCamera;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CustomMovementComponent_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_CustomMovementComponent;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_DefaultMappingContext_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_DefaultMappingContext;
@@ -56,6 +61,10 @@ void EmptyLinkFunctionForGeneratedCodeClimbingSystemCharacter() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_LookAction_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_LookAction;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ClimbAction_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ClimbAction;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -70,6 +79,7 @@ void EmptyLinkFunctionForGeneratedCodeClimbingSystemCharacter() {}
 		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "ClimbingSystemCharacter.h" },
 		{ "ModuleRelativePath", "ClimbingSystemCharacter.h" },
+		{ "ObjectInitializerConstructorDeclared", "" },
 	};
 #endif
 #if WITH_METADATA
@@ -102,6 +112,15 @@ void EmptyLinkFunctionForGeneratedCodeClimbingSystemCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_FollowCamera = { "FollowCamera", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AClimbingSystemCharacter, FollowCamera), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_FollowCamera_MetaData), Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_FollowCamera_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_CustomMovementComponent_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Movement" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "ClimbingSystemCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_CustomMovementComponent = { "CustomMovementComponent", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AClimbingSystemCharacter, CustomMovementComponent), Z_Construct_UClass_UCustomMovementComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_CustomMovementComponent_MetaData), Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_CustomMovementComponent_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_DefaultMappingContext_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -158,13 +177,23 @@ void EmptyLinkFunctionForGeneratedCodeClimbingSystemCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_LookAction = { "LookAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AClimbingSystemCharacter, LookAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_LookAction_MetaData), Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_LookAction_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_ClimbAction_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Input" },
+		{ "ModuleRelativePath", "ClimbingSystemCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_ClimbAction = { "ClimbAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AClimbingSystemCharacter, ClimbAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_ClimbAction_MetaData), Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_ClimbAction_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AClimbingSystemCharacter_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_CameraBoom,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_FollowCamera,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_CustomMovementComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_DefaultMappingContext,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_JumpAction,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_MoveAction,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_LookAction,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AClimbingSystemCharacter_Statics::NewProp_ClimbAction,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AClimbingSystemCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AClimbingSystemCharacter>::IsAbstract,
@@ -204,9 +233,9 @@ void EmptyLinkFunctionForGeneratedCodeClimbingSystemCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_ClimbingSystemCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AClimbingSystemCharacter, AClimbingSystemCharacter::StaticClass, TEXT("AClimbingSystemCharacter"), &Z_Registration_Info_UClass_AClimbingSystemCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AClimbingSystemCharacter), 175688460U) },
+		{ Z_Construct_UClass_AClimbingSystemCharacter, AClimbingSystemCharacter::StaticClass, TEXT("AClimbingSystemCharacter"), &Z_Registration_Info_UClass_AClimbingSystemCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AClimbingSystemCharacter), 1958917831U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_ClimbingSystemCharacter_h_3552392841(TEXT("/Script/ClimbingSystem"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_ClimbingSystemCharacter_h_1118331706(TEXT("/Script/ClimbingSystem"),
 		Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_ClimbingSystemCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_ClimbingSystemCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -62,6 +62,12 @@
     <Filter Include="Source\ClimbingSystem\Private">
       <UniqueIdentifier>{35326A10-B400-3834-A97F-A87D6B185B61}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\ClimbingSystem\Private\AnimInstance">
+      <UniqueIdentifier>{7B814C7A-641C-3CCE-B648-702C08F1B258}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\ClimbingSystem\Private\AnimInstance\CharacterAnimInstance.cpp">
+      <Filter>Source\ClimbingSystem\Private\AnimInstance</Filter>
+    </ClCompile>
     <Filter Include="Source\ClimbingSystem\Private\Components">
       <UniqueIdentifier>{73C9760B-71AF-3A89-9A91-B14014F7BFF4}</UniqueIdentifier>
     </Filter>
@@ -71,6 +77,12 @@
     <Filter Include="Source\ClimbingSystem\Public">
       <UniqueIdentifier>{CEC5F783-412C-3DC5-8560-427970BDB366}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\ClimbingSystem\Public\AnimInstance">
+      <UniqueIdentifier>{1A25A03D-BBC4-382C-8577-BD2EEE8C3356}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\ClimbingSystem\Public\AnimInstance\CharacterAnimInstance.h">
+      <Filter>Source\ClimbingSystem\Public\AnimInstance</Filter>
+    </ClInclude>
     <Filter Include="Source\ClimbingSystem\Public\Components">
       <UniqueIdentifier>{C1AC092F-EBA7-301A-901A-582F21A6DAD3}</UniqueIdentifier>
     </Filter>

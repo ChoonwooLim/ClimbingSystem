@@ -175,6 +175,10 @@ void EmptyLinkFunctionForGeneratedCodeCustomMovementComponent() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_IdleToClimbMontage_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_IdleToClimbMontage;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ClimbToTopMontage_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ClimbToTopMontage;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -260,6 +264,14 @@ void EmptyLinkFunctionForGeneratedCodeCustomMovementComponent() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_IdleToClimbMontage = { "IdleToClimbMontage", nullptr, (EPropertyFlags)0x0040000000010015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCustomMovementComponent, IdleToClimbMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_IdleToClimbMontage_MetaData), Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_IdleToClimbMontage_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_ClimbToTopMontage_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Character Movement: Climbing" },
+		{ "ModuleRelativePath", "Public/Components/CustomMovementComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_ClimbToTopMontage = { "ClimbToTopMontage", nullptr, (EPropertyFlags)0x0040000000010015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCustomMovementComponent, ClimbToTopMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_ClimbToTopMontage_MetaData), Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_ClimbToTopMontage_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCustomMovementComponent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_OwningPlayerAnimInstance,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_ClimbableSurfaceTraceTypes_Inner,
@@ -270,6 +282,7 @@ void EmptyLinkFunctionForGeneratedCodeCustomMovementComponent() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_MaxClimbSpeed,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_MaxClimbAcceleration,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_IdleToClimbMontage,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_ClimbToTopMontage,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCustomMovementComponent_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UCustomMovementComponent>::IsAbstract,
@@ -314,9 +327,9 @@ void EmptyLinkFunctionForGeneratedCodeCustomMovementComponent() {}
 		{ ECustomMovementMode_StaticEnum, TEXT("ECustomMovementMode"), &Z_Registration_Info_UEnum_ECustomMovementMode, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 611484906U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_Public_Components_CustomMovementComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCustomMovementComponent, UCustomMovementComponent::StaticClass, TEXT("UCustomMovementComponent"), &Z_Registration_Info_UClass_UCustomMovementComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCustomMovementComponent), 2939127285U) },
+		{ Z_Construct_UClass_UCustomMovementComponent, UCustomMovementComponent::StaticClass, TEXT("UCustomMovementComponent"), &Z_Registration_Info_UClass_UCustomMovementComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCustomMovementComponent), 1773202244U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_Public_Components_CustomMovementComponent_h_2752525117(TEXT("/Script/ClimbingSystem"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_Public_Components_CustomMovementComponent_h_2861490329(TEXT("/Script/ClimbingSystem"),
 		Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_Public_Components_CustomMovementComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_Public_Components_CustomMovementComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_Public_Components_CustomMovementComponent_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_Public_Components_CustomMovementComponent_h_Statics::EnumInfo));

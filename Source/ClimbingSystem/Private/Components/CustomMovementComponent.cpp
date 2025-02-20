@@ -5,6 +5,7 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "ClimbingSystem/ClimbingSystemCharacter.h"
 #include "Components/CapsuleComponent.h"
+#include "Kismet/KismetMathLibrary.h"
 
 #include "ClimbingSystem/DebugHelper.h"
 
@@ -203,6 +204,7 @@ void UCustomMovementComponent::PhysClimb(float deltaTime, int32 Iterations)
 	TraceClimbableSurfaces();
 	ProcessClimableSurfaceInfo();
 
+	
 	/*Check if we should stop climbing*/
 	if (CheckShouldStopClimbing())
 	{
@@ -270,6 +272,33 @@ bool UCustomMovementComponent::CheckShouldStopClimbing()
 		return true;
 	}
 
+
+	return false;
+}
+
+bool UCustomMovementComponent::CheckHasReachedFloor()
+{
+	const FVector DownVector = -UpdatedComponent->GetUpVector();
+	const FVector StartOffset = DownVector * 50.f;
+
+	const FVector Start = UpdatedComponent->GetComponentLocation() + StartOffset;
+	const FVector End = Start + DownVector;
+
+	TArray<FHitResult> PossibleFloorHits = DoCapsuleTraceMultiByObject(Start, End, true);
+
+	if (PossibleFloorHits.IsEmpty()) return false;
+
+	for (const FHitResult& PossibleFloorHit : PossibleFloorHits)
+	{
+		const bool bFloorReached =
+			FVector::Parallel(-PossibleFloorHit.ImpactNormal, FVector::UpVector) &&
+			GetUnrotatedClimbVelocity().Z < -10.f;
+
+		if (bFloorReached)
+		{
+			return true;
+		}
+	}
 
 	return false;
 }
@@ -343,11 +372,16 @@ void UCustomMovementComponent::PlayClimbMontage(UAnimMontage* MontageToPlay)
 
 void UCustomMovementComponent::OnClimbMontageEnded(UAnimMontage* Montage, bool bInterrupted)
 {
-	Debug::Print(TEXT("Climb montage ended"));
-
+	
 	if (Montage == IdleToClimbMontage)
 	{
 		StartClimbing();
 	}
 }
+
+FVector UCustomMovementComponent::GetUnrotatedClimbVelocity() const
+{
+	return UKismetMathLibrary::Quat_UnrotateVector(UpdatedComponent->GetComponentQuat(), Velocity);
+}
+
 #pragma endregion

@@ -172,6 +172,14 @@ void EmptyLinkFunctionForGeneratedCodeCustomMovementComponent() {}
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_MaxClimbAcceleration;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ClimbDownWalkableSurfaceTraceOffset_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_ClimbDownWalkableSurfaceTraceOffset;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ClimbDownLedgeTraceOffset_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_ClimbDownLedgeTraceOffset;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_IdleToClimbMontage_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_IdleToClimbMontage;
@@ -257,6 +265,22 @@ void EmptyLinkFunctionForGeneratedCodeCustomMovementComponent() {}
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_MaxClimbAcceleration = { "MaxClimbAcceleration", nullptr, (EPropertyFlags)0x0040000000010015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCustomMovementComponent, MaxClimbAcceleration), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_MaxClimbAcceleration_MetaData), Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_MaxClimbAcceleration_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_ClimbDownWalkableSurfaceTraceOffset_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Character Movement: Climbing" },
+		{ "ModuleRelativePath", "Public/Components/CustomMovementComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_ClimbDownWalkableSurfaceTraceOffset = { "ClimbDownWalkableSurfaceTraceOffset", nullptr, (EPropertyFlags)0x0040000000010015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCustomMovementComponent, ClimbDownWalkableSurfaceTraceOffset), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_ClimbDownWalkableSurfaceTraceOffset_MetaData), Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_ClimbDownWalkableSurfaceTraceOffset_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_ClimbDownLedgeTraceOffset_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Character Movement: Climbing" },
+		{ "ModuleRelativePath", "Public/Components/CustomMovementComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_ClimbDownLedgeTraceOffset = { "ClimbDownLedgeTraceOffset", nullptr, (EPropertyFlags)0x0040000000010015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCustomMovementComponent, ClimbDownLedgeTraceOffset), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_ClimbDownLedgeTraceOffset_MetaData), Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_ClimbDownLedgeTraceOffset_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_IdleToClimbMontage_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Character Movement: Climbing" },
@@ -281,6 +305,8 @@ void EmptyLinkFunctionForGeneratedCodeCustomMovementComponent() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_MaxBreakClimbDeceleration,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_MaxClimbSpeed,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_MaxClimbAcceleration,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_ClimbDownWalkableSurfaceTraceOffset,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_ClimbDownLedgeTraceOffset,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_IdleToClimbMontage,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCustomMovementComponent_Statics::NewProp_ClimbToTopMontage,
 	};
@@ -327,9 +353,9 @@ void EmptyLinkFunctionForGeneratedCodeCustomMovementComponent() {}
 		{ ECustomMovementMode_StaticEnum, TEXT("ECustomMovementMode"), &Z_Registration_Info_UEnum_ECustomMovementMode, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 611484906U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_Public_Components_CustomMovementComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCustomMovementComponent, UCustomMovementComponent::StaticClass, TEXT("UCustomMovementComponent"), &Z_Registration_Info_UClass_UCustomMovementComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCustomMovementComponent), 1773202244U) },
+		{ Z_Construct_UClass_UCustomMovementComponent, UCustomMovementComponent::StaticClass, TEXT("UCustomMovementComponent"), &Z_Registration_Info_UClass_UCustomMovementComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCustomMovementComponent), 3920936050U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_Public_Components_CustomMovementComponent_h_2861490329(TEXT("/Script/ClimbingSystem"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_Public_Components_CustomMovementComponent_h_668585555(TEXT("/Script/ClimbingSystem"),
 		Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_Public_Components_CustomMovementComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_Public_Components_CustomMovementComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_Public_Components_CustomMovementComponent_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ClimbingSystem_Source_ClimbingSystem_Public_Components_CustomMovementComponent_h_Statics::EnumInfo));

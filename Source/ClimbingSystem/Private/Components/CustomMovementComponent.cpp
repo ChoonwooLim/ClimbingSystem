@@ -241,6 +241,15 @@ void UCustomMovementComponent::PhysClimb(float deltaTime, int32 Iterations)
 
 	/*Snap movement to climbable surfaces*/
 	SnapMovementToClimableSurfaces(deltaTime);
+
+	if (CheckHasReachedLedge())
+	{
+		Debug::Print(TEXT("Ledge Reched"), FColor::Green, 1);
+	}
+	else
+	{
+		Debug::Print(TEXT("Ledge Not Reched"), FColor::Red, 1);
+	}
 }
 
 void UCustomMovementComponent::ProcessClimableSurfaceInfo()
@@ -284,7 +293,7 @@ bool UCustomMovementComponent::CheckHasReachedFloor()
 	const FVector Start = UpdatedComponent->GetComponentLocation() + StartOffset;
 	const FVector End = Start + DownVector;
 
-	TArray<FHitResult> PossibleFloorHits = DoCapsuleTraceMultiByObject(Start, End, true);
+	TArray<FHitResult> PossibleFloorHits = DoCapsuleTraceMultiByObject(Start, End);
 
 	if (PossibleFloorHits.IsEmpty()) return false;
 
@@ -333,6 +342,28 @@ void UCustomMovementComponent::SnapMovementToClimableSurfaces(float DeltaTime)
 		true);
 }
 
+bool UCustomMovementComponent::CheckHasReachedLedge()
+{
+	FHitResult LedgetHitResult =  TraceFromEyeHeight(100.f, 50.f);
+
+	if (!LedgetHitResult.bBlockingHit)
+	{
+		const FVector WalkableSurfaceTraceStart = LedgetHitResult.TraceEnd;
+
+		const FVector DownVector = -UpdatedComponent->GetUpVector();
+		const FVector WalkAbleSurfaceTraceEnd = WalkableSurfaceTraceStart + DownVector * 100.f;
+
+		FHitResult WalkableSurfaceHitResult =
+		DoLineTraceSingleByObject(WalkableSurfaceTraceStart, WalkAbleSurfaceTraceEnd, true);
+
+		if (WalkableSurfaceHitResult.bBlockingHit && GetUnrotatedClimbVelocity().Z > 10.f)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
 bool UCustomMovementComponent::IsClimbing() const
 {
 	return MovementMode == MOVE_Custom && CustomMovementMode == ECustomMovementMode::MOVE_Climb;
@@ -358,7 +389,7 @@ FHitResult UCustomMovementComponent::TraceFromEyeHeight(float TraceDistance, flo
 	const FVector Start = ComponentLocation + EyeHeightOffset;
 	const FVector End = Start + UpdatedComponent->GetForwardVector() * TraceDistance;
 
-	return DoLineTraceSingleByObject(Start, End);
+	return DoLineTraceSingleByObject(Start, End, true);
 }
 
 void UCustomMovementComponent::PlayClimbMontage(UAnimMontage* MontageToPlay)

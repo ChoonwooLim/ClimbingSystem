@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Vince Petrelli All Rights Reserved
 
 #pragma once
 
@@ -9,7 +9,7 @@
 class AClimbingSystemCharacter;
 class UCustomMovementComponent;
 /**
- * 
+ *
  */
 UCLASS()
 class CLIMBINGSYSTEM_API UCharacterAnimInstance : public UAnimInstance
@@ -49,6 +49,6 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Reference, meta = (AllowPrivateAccess = "true"))
 	FVector ClimbVelocity;
-	void GetclimbVelocity();
+	void GetClimbVelocity();
 
 };

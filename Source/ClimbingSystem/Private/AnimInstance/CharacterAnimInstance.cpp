@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Vince Petrelli All Rights Reserved
 
 
 #include "AnimInstance/CharacterAnimInstance.h"
@@ -29,7 +29,7 @@ void UCharacterAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 	GetShouldMove();
 	GetIsFalling();
 	GetIsClimbing();
-	GetclimbVelocity();
+	GetClimbVelocity();
 }
 
 void UCharacterAnimInstance::GetGroundSpeed()
@@ -45,9 +45,9 @@ void UCharacterAnimInstance::GetAirSpeed()
 void UCharacterAnimInstance::GetShouldMove()
 {
 	bShouldMove =
-	CustomMovementComponent->GetCurrentAcceleration().Size() > 0 &&
-	GroundSpeed > 5.f &&
-	!bIsFalling;
+		CustomMovementComponent->GetCurrentAcceleration().Size() > 0 &&
+		GroundSpeed > 5.f &&
+		!bIsFalling;
 }
 
 void UCharacterAnimInstance::GetIsFalling()
@@ -60,7 +60,7 @@ void UCharacterAnimInstance::GetIsClimbing()
 	bIsClimbing = CustomMovementComponent->IsClimbing();
 }
 
-void UCharacterAnimInstance::GetclimbVelocity()
+void UCharacterAnimInstance::GetClimbVelocity()
 {
 	ClimbVelocity = CustomMovementComponent->GetUnrotatedClimbVelocity();
 }

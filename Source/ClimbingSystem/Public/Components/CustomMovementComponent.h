@@ -30,7 +30,7 @@ protected:
 #pragma region OverridenFunctions
 
 	virtual void BeginPlay() override;
-	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	virtual void OnMovementModeChanged(EMovementMode PreviousMovementMode, uint8 PreviousCustomMode) override;
 	virtual void PhysCustom(float deltaTime, int32 Iterations) override;
 	virtual float GetMaxSpeed() const override;
@@ -117,10 +117,10 @@ private:
 	float MaxClimbAcceleration = 300.f;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Character Movement: Climbing", meta = (AllowPrivateAccess = "true"))
-	float ClimbDownWalkableSurfaceTraceOffset = 100.f;
+	float ClimbDownWalkableSurfaceTraceOffset = 20.f;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Character Movement: Climbing", meta = (AllowPrivateAccess = "true"))
-	float ClimbDownLedgeTraceOffset = 50.f;
+	float ClimbDownLedgeTraceOffset = 30.f;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Character Movement: Climbing", meta = (AllowPrivateAccess = "true"))
 	UAnimMontage* IdleToClimbMontage;

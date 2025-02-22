@@ -1,0 +1,28 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"I:/000_UnrealWork/ClimbingSystem/Content/ClimbSystem/BP_ClimbingSystemCharacter.uasset",
+				"I:/000_UnrealWork/ClimbingSystem/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/B/CX/WT9BBRWVA3GIQVSAAJJL07.uasset",
+				"I:/000_UnrealWork/ClimbingSystem/Content/CR_AnimMap.umap",
+				"I:/000_UnrealWork/ClimbingSystem/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/0/9F/C7JTD4RHHHCRH1FA4MB4GB.uasset",
+				"I:/000_UnrealWork/ClimbingSystem/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/4/BX/GGMHVFVO0Z9I8Z44MV3QB4.uasset",
+				"I:/000_UnrealWork/ClimbingSystem/Content/ClimbSystem/Animation/Montages/AM_ClimbToTop.uasset",
+				"I:/000_UnrealWork/ClimbingSystem/Content/ClimbSystem/Animation/Raw/DropToFreehang_UE/Driving_DropToFreehang_UE.uasset",
+				"I:/000_UnrealWork/ClimbingSystem/Content/ClimbSystem/Animation/Adjusted/ClimbDownLedge_CRAdjusted.uasset",
+				"I:/000_UnrealWork/ClimbingSystem/Content/ClimbSystem/Animation/Montages/AM_ClimbDownLedge.uasset",
+				"I:/000_UnrealWork/ClimbingSystem/Content/ClimbSystem/Animation/Adjusted/AM_ClimbDownLedge.uasset",
+				"I:/000_UnrealWork/ClimbingSystem/Content/ClimbSystem/Animation/Adjusted/ClimbDownLedge_CRAdjusted/Driving_ClimbDownLedge_CRAdjusted.uasset",
+				"I:/000_UnrealWork/ClimbingSystem/Content/ClimbSystem/Animation/Adjusted/ClimbDownLedge_CRAdjust.uasset",
+				"I:/000_UnrealWork/ClimbingSystem/Content/ClimbSystem/Animation/Montages/AR_ClimbDownLedgeNew.uasset",
+				"I:/000_UnrealWork/ClimbingSystem/Content/ClimbSystem/Animation/Raw/ClimbDownLedge_CRAdjustedFinal.uasset",
+				"I:/000_UnrealWork/ClimbingSystem/Content/ClimbSystem/Animation/Raw/ClimbDownLedge.uasset",
+				"I:/000_UnrealWork/ClimbingSystem/Content/ClimbSystem/Animation/Raw/ClimbDownLedge/Driving_ClimbDownLedge.uasset",
+				"I:/000_UnrealWork/ClimbingSystem/Content/ClimbSystem/Animation/Adjusted/ClimbDownLedge_CRAdjusated.uasset"
+			]
+		}
+	]
+}

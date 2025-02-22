@@ -26,7 +26,7 @@ void UCustomMovementComponent::TickComponent(float DeltaTime, ELevelTick TickTyp
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	/*CanClimbDownLedge();*/
+	CanClimbDownLedge();
 }
 
 void UCustomMovementComponent::OnMovementModeChanged(EMovementMode PreviousMovementMode, uint8 PreviousCustomMode)
@@ -184,6 +184,7 @@ void UCustomMovementComponent::ToggleClimbing(bool bEnableClimb)
 		{
 			PlayClimbMontage(ClimbDownLedgeMontage);
 		}
+		
 	}
 	else
 	{
@@ -212,12 +213,12 @@ bool UCustomMovementComponent::CanClimbDownLedge()
 	const FVector WalkableSurfaceTraceStart = ComponentLocation + ComponentForward * ClimbDownWalkableSurfaceTraceOffset;
 	const FVector WalkableSurfaceTraceEnd = WalkableSurfaceTraceStart + DownVector * 100.f;
 
-	FHitResult WalkableSurfaceHit = DoLineTraceSingleByObject(WalkableSurfaceTraceStart, WalkableSurfaceTraceEnd);
+	FHitResult WalkableSurfaceHit = DoLineTraceSingleByObject(WalkableSurfaceTraceStart, WalkableSurfaceTraceEnd, true);
 
 	const FVector LedgeTraceStart = WalkableSurfaceHit.TraceStart + ComponentForward * ClimbDownLedgeTraceOffset;
 	const FVector LedgeTraceEnd = LedgeTraceStart + DownVector * 200.f;
 
-	FHitResult LedgeTraceHit = DoLineTraceSingleByObject(LedgeTraceStart, LedgeTraceEnd);
+	FHitResult LedgeTraceHit = DoLineTraceSingleByObject(LedgeTraceStart, LedgeTraceEnd, true);
 
 	if (WalkableSurfaceHit.bBlockingHit && !LedgeTraceHit.bBlockingHit)
 	{
@@ -447,8 +448,8 @@ void UCustomMovementComponent::OnClimbMontageEnded(UAnimMontage* Montage, bool b
 		StartClimbing();
 		StopMovementImmediately();
 	}
-
-	if (Montage == ClimbToTopMontage)
+	
+	if(Montage == ClimbToTopMontage )
 	{
 		SetMovementMode(MOVE_Walking);
 	}

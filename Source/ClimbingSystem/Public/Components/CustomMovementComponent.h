@@ -8,6 +8,7 @@
 
 class UAnimMontage;
 class UAnimInstance;
+class AClimbingSystemCharacter;
 
 UENUM(BlueprintType)
 namespace ECustomMovementMode
@@ -30,7 +31,7 @@ protected:
 #pragma region OverridenFunctions
 
 	virtual void BeginPlay() override;
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	virtual void OnMovementModeChanged(EMovementMode PreviousMovementMode, uint8 PreviousCustomMode) override;
 	virtual void PhysCustom(float deltaTime, int32 Iterations) override;
 	virtual float GetMaxSpeed() const override;
@@ -76,10 +77,16 @@ private:
 
 	bool CheckHasReachedLedge();
 
+	void TryStartVaulting();
+
+	bool CanStartVaulting(FVector& OutVaultStartPosition, FVector& OutVaultLandPosition);
+
 	void PlayClimbMontage(UAnimMontage* MontageToPlay);
 
 	UFUNCTION()
 	void OnClimbMontageEnded(UAnimMontage* Montage, bool bInterrupted);
+
+	void SetMotionWarpTarget(const FName& InWarpTargetName, const FVector& InTargetPosition);
 
 #pragma endregion
 
@@ -93,6 +100,9 @@ private:
 
 	UPROPERTY()
 	UAnimInstance* OwningPlayerAnimInstance;
+
+	UPROPERTY()
+	AClimbingSystemCharacter* OwningPlayerCharacter;
 
 #pragma endregion
 
@@ -117,10 +127,10 @@ private:
 	float MaxClimbAcceleration = 300.f;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Character Movement: Climbing", meta = (AllowPrivateAccess = "true"))
-	float ClimbDownWalkableSurfaceTraceOffset = 20.f;
+	float ClimbDownWalkableSurfaceTraceOffset = 100.f;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Character Movement: Climbing", meta = (AllowPrivateAccess = "true"))
-	float ClimbDownLedgeTraceOffset = 30.f;
+	float ClimbDownLedgeTraceOffset = 50.f;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Character Movement: Climbing", meta = (AllowPrivateAccess = "true"))
 	UAnimMontage* IdleToClimbMontage;
@@ -130,6 +140,9 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Character Movement: Climbing", meta = (AllowPrivateAccess = "true"))
 	UAnimMontage* ClimbDownLedgeMontage;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Character Movement: Climbing", meta = (AllowPrivateAccess = "true"))
+	UAnimMontage* VaultMontage;
 
 #pragma endregion
 

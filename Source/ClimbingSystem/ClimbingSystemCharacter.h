@@ -46,6 +46,10 @@ private:
 
 #pragma region Input
 
+	void OnPlayerEnterClimbState();
+	void OnPlayerExitClimbState();
+
+	
 	/** MappingContext */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputMappingContext* DefaultMappingContext;

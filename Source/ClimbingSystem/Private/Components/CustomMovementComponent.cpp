@@ -446,7 +446,7 @@ bool UCustomMovementComponent::CanStartVaulting(FVector& OutVaultStartPosition, 
 	for (int32 i = 0; i < 5; i++)
 	{
 		const FVector Start = ComponentLocation + UpVector * 100.f +
-			ComponentForward * 100.f * (i + 1);
+			ComponentForward * 80.f * (i + 1);
 
 		const FVector End = Start + DownVector * 100.f * (i + 1);
 
@@ -533,23 +533,15 @@ void UCustomMovementComponent::RequestHopping()
 	const float DotResult =
 	FVector::DotProduct(UnRotatedLastInputVector.GetSafeNormal(), FVector::UpVector);
 
-	Debug::Print(TEXT("Dot result: ") + FString::SanitizeFloat(DotResult));
-
 	if (DotResult>=0.9f)
 	{
-		Debug::Print(TEXT("Hop Up "));
-
 		HandleHopUp();
 	}
 	else if (DotResult<=-0.9f)
 	{
-		Debug::Print(TEXT("Hop Down"));
+		HandleHopDown();
 	}
-	else
-	{
-		Debug::Print(TEXT("Invalid Input Range"));
-	}
-
+	
 }
 
 void UCustomMovementComponent::SetMotionWarpTarget(const FName& InWarpTargetName, const FVector& InTargetPosition)
@@ -577,8 +569,8 @@ void UCustomMovementComponent::HandleHopUp()
 
 bool UCustomMovementComponent::CheckCanHopUp(FVector& OutHopUpTargetPosition)
 {
-	FHitResult HopUpHit = TraceFromEyeHeight(100.f, -30.f, true, true);
-	FHitResult SaftyLeddgeHit = TraceFromEyeHeight(100.f, 150.f, true, true);
+	FHitResult HopUpHit = TraceFromEyeHeight(100.f, -20.f);
+	FHitResult SaftyLeddgeHit = TraceFromEyeHeight(100.f, 150.f);
 
 	if (HopUpHit.bBlockingHit && SaftyLeddgeHit.bBlockingHit)
 	{
@@ -589,9 +581,37 @@ bool UCustomMovementComponent::CheckCanHopUp(FVector& OutHopUpTargetPosition)
 	return false;
 }
 
+void UCustomMovementComponent::HandleHopDown()
+{
+	FVector HopDownTargetPoint;
+
+	if (CheckCanHopDown(HopDownTargetPoint))
+	{
+		SetMotionWarpTarget(FName("HopDownTargetPoint"), HopDownTargetPoint);
+
+		PlayClimbMontage(HopDownMontage);
+	}
+}
+
+bool UCustomMovementComponent::CheckCanHopDown(FVector& OutHopDownTargetPosition)
+{
+	FHitResult HopDownHit = TraceFromEyeHeight(100.f, -300.f);
+
+	if (HopDownHit.bBlockingHit)
+	{
+		OutHopDownTargetPosition = HopDownHit.ImpactPoint;
+
+		return true;
+	}
+
+	return false;
+}
+
 FVector UCustomMovementComponent::GetUnrotatedClimbVelocity() const
 {
 	return UKismetMathLibrary::Quat_UnrotateVector(UpdatedComponent->GetComponentQuat(), Velocity);
 }
+
+
 
 #pragma endregion
